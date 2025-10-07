@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trilha • Workout</title>
+  <link rel="manifest" href="../manifest.webmanifest" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+        colors: { brand:'#4f46e5', accent:'#22c55e', warn:'#f97316' },
+        boxShadow: { card:'0 12px 32px rgba(0,0,0,.16)' }
+      } }
+    };
+  </script>
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="../app.js"></script>
+  <link rel="icon" href="../assets/icon-192.png" />
+</head>
+<body class="h-full bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-100">
+
+<header class="sticky top-0 z-40 bg-white/90 dark:bg-neutral-900/90 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
+  <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+    <button onclick="history.back()" class="md:hidden p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide='chevron-left' class='w-5 h-5'></i></button>
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-brand grid place-items-center text-white shadow-card">
+        <i data-lucide="activity" class="w-4 h-4"></i>
+      </div>
+      <strong class="tracking-tight">Trilha</strong>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="themeBtn" onclick="toggleTheme()" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="moon" class="w-5 h-5"></i></button>
+      <a href="../perfil.html" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="user" class="w-5 h-5"></i></a>
+    </div>
+  </div>
+</header>
+
+<main id="activityRoot" data-type="Trilha" class="max-w-5xl mx-auto p-4 pb-28 space-y-4">
+  <section class="rounded-3xl overflow-hidden shadow-card border border-neutral-200 dark:border-neutral-800">
+    <div class="relative h-48 md:h-64 bg-neutral-200 dark:bg-neutral-800">
+      <img src="https://images.unsplash.com/photo-1520975922035-0f0be7f3e0ca?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover" alt="Trilha">
+      <div class="absolute inset-x-0 bottom-0">
+        <div class="mx-3 mb-3 rounded-2xl bg-white/95 dark:bg-neutral-900/95 backdrop-blur border border-neutral-200 dark:border-neutral-800 p-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2"><i data-lucide="mountain" class="w-5 h-5 text-brand"></i><span class="font-semibold">Trilha</span></div>
+            <span class="text-xs px-2 py-1 rounded-full bg-brand/15 text-brand">REC</span>
+          </div>
+          <div class="mt-2 flex items-center justify-between">
+            <div class="text-3xl font-black tabular-nums" id="timer">00:00:00</div>
+            <div class="flex gap-2">
+              <button id="startBtn" class="px-4 py-2 rounded-xl bg-brand text-white"><i data-lucide="play" class="w-4 h-4 inline mr-1"></i>Start</button>
+              <button id="pauseBtn" class="hidden px-4 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700"><i data-lucide="pause" class="w-4 h-4 inline mr-1"></i>Pause</button>
+              <button id="finishBtn" class="hidden px-4 py-2 rounded-xl border border-neutral-300 dark:border-neutral-700"><i data-lucide="square" class="w-4 h-4 inline mr-1"></i>Finish</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="navbar fixed inset-x-0 bottom-0 h-16 md:hidden grid grid-cols-4 items-center bg-white/95 dark:bg-neutral-900/95 backdrop-blur border-t border-neutral-200 dark:border-neutral-800">
+  <a href="../home.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="home" class="w-5 h-5"></i><span class="text-[11px]">Home</span></a>
+  <a href="../atividades/corrida.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="timer" class="w-5 h-5"></i><span class="text-[11px]">Iniciar</span></a>
+  <a href="../historico.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="line-chart" class="w-5 h-5"></i><span class="text-[11px]">Histórico</span></a>
+  <a href="../perfil.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="user" class="w-5 h-5"></i><span class="text-[11px]">Você</span></a>
+</footer>
+
+<script>renderThemeIcon();</script>
+</body>
+</html>

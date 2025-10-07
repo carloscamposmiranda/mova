@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil • Workout</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: { extend: {
+        colors: { brand:'#4f46e5', accent:'#22c55e', warn:'#f97316' },
+        boxShadow: { card:'0 12px 32px rgba(0,0,0,.16)' }
+      } }
+    };
+  </script>
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script defer src="app.js"></script>
+  <link rel="icon" href="assets/icon-192.png" />
+</head>
+<body class="h-full bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-100">
+
+<header class="sticky top-0 z-40 bg-white/90 dark:bg-neutral-900/90 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
+  <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+    <button onclick="history.back()" class="md:hidden p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide='chevron-left' class='w-5 h-5'></i></button>
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-brand grid place-items-center text-white shadow-card">
+        <i data-lucide="activity" class="w-4 h-4"></i>
+      </div>
+      <strong class="tracking-tight">Perfil</strong>
+    </div>
+    <div class="flex items-center gap-2">
+      <button id="themeBtn" onclick="toggleTheme()" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="moon" class="w-5 h-5"></i></button>
+      <a href="perfil.html" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="user" class="w-5 h-5"></i></a>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-5xl mx-auto p-4 pb-20 space-y-4">
+  <div class="rounded-3xl bg-white p-4 shadow-card border border-neutral-200 dark:bg-neutral-900 dark:border-neutral-800">
+    <div class="flex items-center gap-4">
+      <img id="avatarImg" class="w-20 h-20 rounded-full object-cover bg-neutral-200 dark:bg-neutral-800" src="assets/icon-192.png" alt="avatar">
+      <div class="flex-1">
+        <div class="font-bold">Seu perfil</div>
+        <div class="text-xs text-neutral-500 mb-2">Carregue uma foto e ajuste suas metas.</div>
+        <input id="avatarInput" type="file" accept="image/*" class="block text-sm file:mr-4 file:py-2 file:px-3 file:rounded-xl file:border-0 file:bg-brand/10 file:text-brand file:font-semibold hover:file:bg-brand/20">
+      </div>
+      <button onclick="logout()" class="px-4 py-2 rounded-xl border border-neutral-200 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="log-out" class="w-4 h-4 inline mr-1"></i>Sair</button>
+    </div>
+  </div>
+</main>
+
+<footer class="navbar fixed inset-x-0 bottom-0 h-16 md:hidden grid grid-cols-4 items-center bg-white/95 dark:bg-neutral-900/95 backdrop-blur border-t border-neutral-200 dark:border-neutral-800">
+  <a href="home.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="home" class="w-5 h-5"></i><span class="text-[11px]">Home</span></a>
+  <a href="atividades/corrida.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="timer" class="w-5 h-5"></i><span class="text-[11px]">Iniciar</span></a>
+  <a href="historico.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="line-chart" class="w-5 h-5"></i><span class="text-[11px]">Histórico</span></a>
+  <a href="perfil.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="user" class="w-5 h-5"></i><span class="text-[11px]">Você</span></a>
+</footer>
+
+<script>initAvatar(); renderThemeIcon();</script>
+</body>
+</html>

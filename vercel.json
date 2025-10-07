@@ -1,0 +1,45 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/home",
+      "dest": "/home.html"
+    },
+    {
+      "src": "/historico",
+      "dest": "/historico.html"
+    },
+    {
+      "src": "/perfil",
+      "dest": "/perfil.html"
+    },
+    {
+      "src": "/atividades/corrida",
+      "dest": "/atividades/corrida.html"
+    },
+    {
+      "src": "/atividades/bike",
+      "dest": "/atividades/bike.html"
+    },
+    {
+      "src": "/atividades/caminhada",
+      "dest": "/atividades/caminhada.html"
+    },
+    {
+      "src": "/atividades/cardio",
+      "dest": "/atividades/cardio.html"
+    },
+    {
+      "src": "/atividades/caminhada-leve",
+      "dest": "/atividades/caminhada-leve.html"
+    },
+    {
+      "src": "/atividades/trilha",
+      "dest": "/atividades/trilha.html"
+    }
+  ]
+}
