@@ -1,8 +1,7 @@
 {
-  "name": "Movimento",
-  "short_name": "Movimento",
+  "name": "MOVA",
+  "short_name": "MOVA",
   "start_url": "/",
-  "scope": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#6d28d9",
@@ -16,6 +15,11 @@
       "src": "assets/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "assets/favicon.ico",
+      "sizes": "64x64 32x32 16x16",
+      "type": "image/x-icon"
     }
   ]
 }

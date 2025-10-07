@@ -1,0 +1,36 @@
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Entrar • MOVA</title>
+<link rel="icon" href="assets/favicon.ico"/><link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#6d28d9"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#6d28d9'}}}};</script>
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script defer src="app.js"></script></head>
+<body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+<main class="min-h-[100svh] grid place-items-center p-4">
+  <div class="w-full max-w-md rounded-[28px] overflow-hidden shadow-[0_12px_32px_rgba(17,12,28,.12)] border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900">
+    <div class="relative h-56">
+      <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+      <div class="absolute bottom-4 left-0 right-0 flex flex-col items-center gap-2">
+        <img src="assets/icon-192.png" class="w-8 h-8 rounded" alt="logo">
+        <span class="px-3 py-1 rounded-full bg-white/95 text-neutral-900 text-xs font-bold shadow">MOVA</span>
+      </div>
+    </div>
+    <div class="p-5">
+      <h1 class="text-xl font-extrabold mb-2">Entrar</h1>
+      <form onsubmit="event.preventDefault(); login();">
+        <label class="grid gap-1 mb-3 text-sm"><span>E-mail</span>
+          <input type="email" required placeholder="voce@exemplo.com" class="px-3 py-3 rounded-xl border border-neutral-300 focus:ring-2 focus:ring-primary/30 dark:bg-neutral-900 dark:border-neutral-700">
+        </label>
+        <label class="grid gap-1 mb-4 text-sm"><span>Senha</span>
+          <input type="password" required placeholder="••••••••" class="px-3 py-3 rounded-xl border border-neutral-300 focus:ring-2 focus:ring-primary/30 dark:bg-neutral-900 dark:border-neutral-700">
+        </label>
+        <button class="w-full bg-primary text-white font-semibold py-3 rounded-xl">Entrar agora</button>
+      </form>
+      <div class="flex justify-center mt-4"><button id="themeBtn" onclick="toggleTheme()" class="p-2 rounded-xl border border-neutral-200 dark:border-neutral-700"><i data-lucide="moon" class="w-5 h-5"></i></button></div>
+    </div>
+  </div>
+</main>
+</body></html>

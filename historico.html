@@ -1,65 +1,29 @@
-<!DOCTYPE html>
-<html lang="pt-BR" class="h-full">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Histórico • Movimento</title>
-  <link rel="manifest" href="manifest.webmanifest" />
-  <meta name="theme-color" content="#6d28d9"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: { extend: {
-        colors: { primary:'#6d28d9', primary2:'#7c3aed' },
-        borderRadius: { 'xl2':'1.25rem' },
-        boxShadow: { card:'0 12px 32px rgba(17, 12, 28, .12)' }
-      } }
-    };
-  </script>
-  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script defer src="app.js"></script>
-  <link rel="icon" href="assets/icon-192.png" />
-</head>
-<body class="h-full bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-100 antialiased">
-
-<header class="sticky top-0 z-40 bg-white/95 dark:bg-neutral-900/95 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
-  <div class="max-w-6xl mx-auto px-4 h-14 grid grid-cols-[auto_1fr_auto] items-center gap-2">
-    <button onclick="history.back()" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide='chevron-left' class='w-5 h-5'></i></button>
-    <div class="flex items-center gap-2 justify-self-start">
-      <div class="w-8 h-8 rounded-xl bg-primary grid place-items-center text-white">
-        <i data-lucide="activity" class="w-4 h-4"></i>
-      </div>
-      <strong class="tracking-tight">Histórico</strong>
-    </div>
-    <div class="justify-self-end">
-      <button id="themeBtn" onclick="toggleTheme()" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="moon" class="w-5 h-5"></i></button>
-    </div>
-  </div>
+<!doctype html><html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>Histórico • MOVA</title>
+<link rel="icon" href="assets/favicon.ico"/><link rel="manifest" href="manifest.webmanifest"/>
+<meta name="theme-color" content="#6d28d9"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={darkMode:'class',theme:{extend:{colors:{primary:'#6d28d9'}}}};</script>
+<script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script defer src="app.js"></script></head>
+<body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+<header class="sticky top-0 z-40 bg-white/95 dark:bg-neutral-900/95 border-b border-neutral-200 dark:border-neutral-800">
+  <div class="max-w-6xl mx-auto px-4 h-14 flex items-center gap-3"><a onclick="history.back()" class="p-2"><i data-lucide='chevron-left' class='w-5 h-5'></i></a><strong>Histórico</strong><button id="themeBtn" onclick="toggleTheme()" class="ml-auto p-2"><i data-lucide='moon' class='w-5 h-5'></i></button></div>
 </header>
-
-<main class="max-w-6xl mx-auto p-4 pb-24 space-y-4">
-  <div class="flex items-center justify-between">
-    <h2 class="font-extrabold text-xl">Histórico</h2>
-    <span class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-primary/10 text-primary"><i data-lucide="trophy" class="w-4 h-4"></i> Calorias: <strong id="totalPts" class="ml-1">0</strong></span>
-  </div>
-  <div class="rounded-3xl border border-neutral-200 bg-white p-3 dark:bg-neutral-900 dark:border-neutral-800">
-    <div class="overflow-x-auto">
-      <table class="min-w-[560px] w-full border-separate border-spacing-y-2 text-sm">
-        <thead class="text-neutral-500"><tr><th class="text-left px-2">Data</th><th class="text-left px-2">Tipo</th><th class="text-left px-2">Duração</th><th class="text-left px-2">Calorias</th></tr></thead>
-        <tbody id="historyRows"></tbody>
-      </table>
-    </div>
+<main class="max-w-6xl mx-auto p-4 pb-24">
+  <div class="flex items-center justify-between mb-3"><h2 class="text-xl font-extrabold">Histórico</h2><span class="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary">Calorias: <b id="totalPts">0</b></span></div>
+  <div class="rounded-3xl border dark:border-neutral-800 bg-white dark:bg-neutral-900 p-3 overflow-x-auto">
+    <table class="min-w-[560px] w-full border-separate border-spacing-y-2 text-sm">
+      <thead class="text-neutral-500"><tr><th class="text-left px-2">Data</th><th class="text-left px-2">Tipo</th><th class="text-left px-2">Duração</th><th class="text-left px-2">Calorias</th></tr></thead>
+      <tbody id="historyRows"></tbody>
+    </table>
   </div>
 </main>
 
-<footer class="navbar fixed inset-x-0 bottom-0 h-[68px] md:hidden grid grid-cols-4 items-center bg-white/95 dark:bg-neutral-900/95 border-t border-neutral-200 dark:border-neutral-800 pb-[env(safe-area-inset-bottom)]">
-  <a href="home.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="home" class="w-5 h-5"></i><span class="text-[11px]">Início</span></a>
-  <a href="atividades/corrida.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="timer" class="w-5 h-5"></i><span class="text-[11px]">Iniciar</span></a>
-  <a href="historico.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="line-chart" class="w-5 h-5"></i><span class="text-[11px]">Histórico</span></a>
-  <a href="perfil.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="user" class="w-5 h-5"></i><span class="text-[11px]">Você</span></a>
-</footer>
-
-<script>renderHistory(); renderThemeIcon();</script>
-</body>
-</html>
+<footer class="fixed inset-x-0 bottom-0 h-[68px] grid grid-cols-4 items-center bg-white/95 dark:bg-neutral-900/95 border-t border-neutral-200 dark:border-neutral-800 md:hidden">
+  <a href="home.html" class="flex flex-col items-center text-neutral-600"><i data-lucide='home' class='w-5 h-5'></i><span class='text-[11px]'>Início</span></a>
+  <a href="atividades/corrida.html" class="flex flex-col items-center text-neutral-600"><i data-lucide='timer' class='w-5 h-5'></i><span class='text-[11px]'>Gravar</span></a>
+  <a href="historico.html" class="flex flex-col items-center text-neutral-600"><i data-lucide='line-chart' class='w-5 h-5'></i><span class='text-[11px]'>Histórico</span></a>
+  <a href="perfil.html" class="flex flex-col items-center text-neutral-600"><i data-lucide='user' class='w-5 h-5'></i><span class='text-[11px]'>Você</span></a>
+</footer></body></html>
