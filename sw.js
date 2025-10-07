@@ -1,4 +1,4 @@
-const CACHE='workout-pwa-tw-v4';
+const CACHE='movimento-pwa-v5';
 const ASSETS=['./','index.html','home.html','historico.html','perfil.html','app.js','manifest.webmanifest','assets/icon-192.png','assets/icon-512.png',
 'atividades/corrida.html','atividades/bike.html','atividades/caminhada.html','atividades/cardio.html','atividades/trilha.html','atividades/caminhada-leve.html',
 'https://cdn.tailwindcss.com','https://unpkg.com/lucide@latest/dist/umd/lucide.min.js'];

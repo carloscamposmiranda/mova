@@ -2,16 +2,18 @@
 <html lang="pt-BR" class="h-full">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Histórico • Workout</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Histórico • Movimento</title>
   <link rel="manifest" href="manifest.webmanifest" />
+  <meta name="theme-color" content="#6d28d9"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: { extend: {
-        colors: { brand:'#4f46e5', accent:'#22c55e', warn:'#f97316' },
-        boxShadow: { card:'0 12px 32px rgba(0,0,0,.16)' }
+        colors: { primary:'#6d28d9', primary2:'#7c3aed' },
+        borderRadius: { 'xl2':'1.25rem' },
+        boxShadow: { card:'0 12px 32px rgba(17, 12, 28, .12)' }
       } }
     };
   </script>
@@ -19,39 +21,40 @@
   <script defer src="app.js"></script>
   <link rel="icon" href="assets/icon-192.png" />
 </head>
-<body class="h-full bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-100">
+<body class="h-full bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-100 antialiased">
 
-<header class="sticky top-0 z-40 bg-white/90 dark:bg-neutral-900/90 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
-  <div class="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
-    <button onclick="history.back()" class="md:hidden p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide='chevron-left' class='w-5 h-5'></i></button>
-    <div class="flex items-center gap-3">
-      <div class="w-9 h-9 rounded-xl bg-brand grid place-items-center text-white shadow-card">
+<header class="sticky top-0 z-40 bg-white/95 dark:bg-neutral-900/95 backdrop-blur border-b border-neutral-200 dark:border-neutral-800">
+  <div class="max-w-6xl mx-auto px-4 h-14 grid grid-cols-[auto_1fr_auto] items-center gap-2">
+    <button onclick="history.back()" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide='chevron-left' class='w-5 h-5'></i></button>
+    <div class="flex items-center gap-2 justify-self-start">
+      <div class="w-8 h-8 rounded-xl bg-primary grid place-items-center text-white">
         <i data-lucide="activity" class="w-4 h-4"></i>
       </div>
       <strong class="tracking-tight">Histórico</strong>
     </div>
-    <div class="flex items-center gap-2">
+    <div class="justify-self-end">
       <button id="themeBtn" onclick="toggleTheme()" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="moon" class="w-5 h-5"></i></button>
-      <a href="perfil.html" class="p-2 rounded-xl hover:bg-neutral-100 dark:hover:bg-neutral-800"><i data-lucide="user" class="w-5 h-5"></i></a>
     </div>
   </div>
 </header>
 
-<main class="max-w-5xl mx-auto p-4 pb-20 space-y-4">
+<main class="max-w-6xl mx-auto p-4 pb-24 space-y-4">
   <div class="flex items-center justify-between">
     <h2 class="font-extrabold text-xl">Histórico</h2>
-    <span class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-brand/15 text-brand"><i data-lucide="trophy" class="w-4 h-4"></i> Calorias: <strong id="totalPts" class="ml-1">0</strong></span>
+    <span class="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-primary/10 text-primary"><i data-lucide="trophy" class="w-4 h-4"></i> Calorias: <strong id="totalPts" class="ml-1">0</strong></span>
   </div>
   <div class="rounded-3xl border border-neutral-200 bg-white p-3 dark:bg-neutral-900 dark:border-neutral-800">
-    <table class="w-full border-separate border-spacing-y-2 text-sm">
-      <thead class="text-neutral-500"><tr><th class="text-left px-2">Data</th><th class="text-left px-2">Tipo</th><th class="text-left px-2">Duração</th><th class="text-left px-2">Calorias</th></tr></thead>
-      <tbody id="historyRows"></tbody>
-    </table>
+    <div class="overflow-x-auto">
+      <table class="min-w-[560px] w-full border-separate border-spacing-y-2 text-sm">
+        <thead class="text-neutral-500"><tr><th class="text-left px-2">Data</th><th class="text-left px-2">Tipo</th><th class="text-left px-2">Duração</th><th class="text-left px-2">Calorias</th></tr></thead>
+        <tbody id="historyRows"></tbody>
+      </table>
+    </div>
   </div>
 </main>
 
-<footer class="navbar fixed inset-x-0 bottom-0 h-16 md:hidden grid grid-cols-4 items-center bg-white/95 dark:bg-neutral-900/95 backdrop-blur border-t border-neutral-200 dark:border-neutral-800">
-  <a href="home.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="home" class="w-5 h-5"></i><span class="text-[11px]">Home</span></a>
+<footer class="navbar fixed inset-x-0 bottom-0 h-[68px] md:hidden grid grid-cols-4 items-center bg-white/95 dark:bg-neutral-900/95 border-t border-neutral-200 dark:border-neutral-800 pb-[env(safe-area-inset-bottom)]">
+  <a href="home.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="home" class="w-5 h-5"></i><span class="text-[11px]">Início</span></a>
   <a href="atividades/corrida.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="timer" class="w-5 h-5"></i><span class="text-[11px]">Iniciar</span></a>
   <a href="historico.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="line-chart" class="w-5 h-5"></i><span class="text-[11px]">Histórico</span></a>
   <a href="perfil.html" class="flex flex-col items-center text-neutral-500"><i data-lucide="user" class="w-5 h-5"></i><span class="text-[11px]">Você</span></a>
